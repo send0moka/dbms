@@ -7,10 +7,10 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
-import styles from "~/styles/global.css";
+import globalStylesUrl from "~/styles/global.css";
 
 export function links() {
-  return [{ rel: "stylesheet", href: styles }];
+  return [{ rel: "stylesheet", href: globalStylesUrl }];
 }
 
 export function meta() {
