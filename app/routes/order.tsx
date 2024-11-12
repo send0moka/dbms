@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import type { MetaFunction } from "@vercel/remix";
 import Navigation from "~/components/Navigation";
 import Footer from "~/components/Footer";
+import OrderForm from "~/components/OrderForm";
 
 export const meta: MetaFunction = () => {
   return [
@@ -50,31 +51,7 @@ export default function Order() {
             <img src="/images/maskot.png" alt="DBMS Mascot" />
           </div>
           
-          <div className="form-content">
-            <h1>Commission <span style={{ color: "palevioletred" }}>Form</span></h1>
-            
-            {!showTerms ? (
-              <div className="welcome-text">
-                <p>You're interested to work with us? Let's go!</p>
-                <p>Please fill out the form carefully.</p>
-                <p>Thank you so much for your support.</p>
-                <p>~ DBMS</p>
-                <button onClick={() => setShowTerms(true)} className="click-here-btn">
-                  Click Here
-                </button>
-                <p className="time-note">takes 8 minutes</p>
-              </div>
-            ) : (
-              <div className="terms-box">
-                <p>➙ By filling out this form you agree to our <span style={{ color: "palevioletred" }}>Terms of Service.</span></p>
-                <p>➙ Filling out this form does not guarantee a commission slot.</p>
-                <p>We will reach out to you within <span style={{ color: "palevioletred" }}>7 business days</span>.</p>
-                <button onClick={() => setShowTerms(false)} className="agree-btn">
-                  I AGREE
-                </button>
-              </div>
-            )}
-          </div>
+          <OrderForm />
         </div>
       </main>
 
