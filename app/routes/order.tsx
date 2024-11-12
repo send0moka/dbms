@@ -66,9 +66,9 @@ export default function Order() {
               </div>
             ) : (
               <div className="terms-box">
-                <p>➙ By filling out this form you agree to our Terms of Service.</p>
+                <p>➙ By filling out this form you agree to our <span style={{ color: "palevioletred" }}>Terms of Service.</span></p>
                 <p>➙ Filling out this form does not guarantee a commission slot.</p>
-                <p>We will reach out to you within 7 business days.</p>
+                <p>We will reach out to you within <span style={{ color: "palevioletred" }}>7 business days</span>.</p>
                 <button onClick={() => setShowTerms(false)} className="agree-btn">
                   I AGREE
                 </button>

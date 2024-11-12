@@ -354,7 +354,7 @@ footer {
 }
 
 .terms-box {
-  background: rgba(255, 255, 255, 0.1);
+  background: #222136;
   padding: 2rem;
   border-radius: 15px;
   backdrop-filter: blur(5px);
