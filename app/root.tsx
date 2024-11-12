@@ -7,7 +7,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
+import { useEffect, useState } from "react";
 import styles from "~/styles/global.css?url";
+import Loader from "~/components/Loader";
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
@@ -22,6 +24,17 @@ export function meta() {
 }
 
 export default function App() {
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    const handleNavigation = () => {
+      setShowLoader(true);
+    };
+
+    window.addEventListener('popstate', handleNavigation);
+    return () => window.removeEventListener('popstate', handleNavigation);
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -29,6 +42,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        {showLoader && <Loader />}
         <Outlet />
         <ScrollRestoration />
         <Scripts />
