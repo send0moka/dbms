@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import type { MetaFunction } from "@vercel/remix";
 import Navigation from "~/components/Navigation";
 import Footer from "~/components/Footer";
 import OrderForm from "~/components/OrderForm";
+import OrderMascot from "~/components/OrderMascot";
 
 export const meta: MetaFunction = () => {
   return [
@@ -12,7 +13,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Order() {
-  const [showTerms, setShowTerms] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
     const stars = document.querySelector(".order-stars");
@@ -40,6 +41,10 @@ export default function Order() {
     }
   }, []);
 
+  const handleStepChange = (step: SetStateAction<number>) => {
+    setCurrentStep(step);
+  };
+
   return (
     <>
       <Navigation />
@@ -47,11 +52,8 @@ export default function Order() {
       <main className="order-main">
         <div className="order-stars"></div>
         <div className="order-content">
-          <div className="mascot">
-            <img src="/images/maskot.png" alt="DBMS Mascot" />
-          </div>
-          
-          <OrderForm />
+          <OrderMascot currentStep={currentStep} />
+          <OrderForm onStepChange={handleStepChange} />
         </div>
       </main>
 

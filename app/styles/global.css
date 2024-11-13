@@ -291,7 +291,7 @@ footer {
 .mascot {
   position: fixed;
   left: 10%;
-  top: 50%;
+  top: 70%;
   transform: translateY(-50%);
   animation: float 3s ease-in-out infinite;
 }
@@ -299,6 +299,7 @@ footer {
 .mascot img {
   height: 400px;
   width: auto;
+  transition: all 0.3s ease-in-out;
 }
 
 @keyframes float {
@@ -311,6 +312,10 @@ footer {
   100% {
     transform: translateY(-50%);
   }
+}
+
+.mascot img.transitioning {
+  animation-duration: 1s !important;
 }
 
 .form-content {

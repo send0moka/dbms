@@ -1,15 +1,35 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 
-const OrderForm = () => {
+interface OrderFormProps {
+  onStepChange: (step: number) => void;
+}
+
+const OrderForm: React.FC<OrderFormProps> = ({ onStepChange }) => {
+  const [currentStep, setCurrentStep] = useState(0);
   const [showTerms, setShowTerms] = useState(false);
   const [showNameInput, setShowNameInput] = useState(false);
   const [name, setName] = useState('');
 
+  const handleStartForm = () => {
+    setShowTerms(true);
+    setCurrentStep(1);
+    onStepChange(1);
+  };
+
   const handleAgree = () => {
     setShowTerms(false);
     setShowNameInput(true);
+    setCurrentStep(2);
+    onStepChange(2);
   };
+
+  const handleNext = () => {
+    // Handle next step
+    setCurrentStep(currentStep + 1);
+    onStepChange(currentStep + 1);
+  };
+
 
   return (
     <div className="form-content">
@@ -21,7 +41,7 @@ const OrderForm = () => {
           <p>Please fill out the form carefully.</p>
           <p>Thank you so much for your support.</p>
           <p>~ DBMS</p>
-          <button onClick={() => setShowTerms(true)} className="click-here-btn">
+          <button onClick={handleStartForm} className="click-here-btn">
             Click Here
           </button>
           <p className="time-note">takes 8 minutes</p>
@@ -49,7 +69,7 @@ const OrderForm = () => {
             placeholder="TYPE YOUR ANSWER HERE..."
             className="form-input"
           />
-            <button className="next-btn">
+            <button onClick={handleNext} className="next-btn">
             NEXT <ArrowRight className="ml-2" strokeWidth={3} />
             </button>
         </div>
