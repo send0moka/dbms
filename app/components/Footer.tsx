@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "@remix-run/react"
 
 export default function Footer() {
   return (
@@ -19,7 +19,11 @@ export default function Footer() {
       <div className="social-links">
         <a
           href="https://x.com/dbms_creative"
-          style={{ display: "inline-flex", flexDirection: "column", gap: "8px" }}
+          style={{
+            display: "inline-flex",
+            flexDirection: "column",
+            gap: "8px",
+          }}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -28,7 +32,11 @@ export default function Footer() {
         </a>
         <a
           href="https://www.instagram.com/dbms_creative/"
-          style={{ display: "inline-flex", flexDirection: "column", gap: "8px" }}
+          style={{
+            display: "inline-flex",
+            flexDirection: "column",
+            gap: "8px",
+          }}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -37,7 +45,11 @@ export default function Footer() {
         </a>
         <a
           href="https://tako.id/dbms_creative"
-          style={{ display: "inline-flex", flexDirection: "column", gap: "8px" }}
+          style={{
+            display: "inline-flex",
+            flexDirection: "column",
+            gap: "8px",
+          }}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -46,5 +58,5 @@ export default function Footer() {
         </a>
       </div>
     </footer>
-  );
+  )
 }

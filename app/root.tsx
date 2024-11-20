@@ -5,14 +5,14 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
-import { Analytics } from "@vercel/analytics/react";
-import { useEffect, useState } from "react";
-import styles from "~/styles/global.css?url";
-import Loader from "~/components/Loader";
+} from "@remix-run/react"
+import { Analytics } from "@vercel/analytics/react"
+import { useEffect, useState } from "react"
+import styles from "~/styles/global.css?url"
+import Loader from "~/components/Loader"
 
 export function links() {
-  return [{ rel: "stylesheet", href: styles }];
+  return [{ rel: "stylesheet", href: styles }]
 }
 
 export function meta() {
@@ -20,20 +20,20 @@ export function meta() {
     { charset: "utf-8" },
     { title: "DBMS - Graphics Solution" },
     { viewport: "width=device-width,initial-scale=1" },
-  ];
+  ]
 }
 
 export default function App() {
-  const [showLoader, setShowLoader] = useState(true);
+  const [showLoader, setShowLoader] = useState(true)
 
   useEffect(() => {
     const handleNavigation = () => {
-      setShowLoader(true);
-    };
+      setShowLoader(true)
+    }
 
-    window.addEventListener('popstate', handleNavigation);
-    return () => window.removeEventListener('popstate', handleNavigation);
-  }, []);
+    window.addEventListener("popstate", handleNavigation)
+    return () => window.removeEventListener("popstate", handleNavigation)
+  }, [])
 
   return (
     <html lang="en">
@@ -50,5 +50,5 @@ export default function App() {
         <Analytics />
       </body>
     </html>
-  );
+  )
 }

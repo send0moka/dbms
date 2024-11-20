@@ -1,40 +1,40 @@
-import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useState } from "react"
+import { ArrowRight } from "lucide-react"
 
 interface OrderFormProps {
-  onStepChange: (step: number) => void;
+  onStepChange: (step: number) => void
 }
 
 const OrderForm: React.FC<OrderFormProps> = ({ onStepChange }) => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [showTerms, setShowTerms] = useState(false);
-  const [showNameInput, setShowNameInput] = useState(false);
-  const [name, setName] = useState('');
+  const [currentStep, setCurrentStep] = useState(0)
+  const [showTerms, setShowTerms] = useState(false)
+  const [showNameInput, setShowNameInput] = useState(false)
+  const [name, setName] = useState("")
 
   const handleStartForm = () => {
-    setShowTerms(true);
-    setCurrentStep(1);
-    onStepChange(1);
-  };
+    setShowTerms(true)
+    setCurrentStep(1)
+    onStepChange(1)
+  }
 
   const handleAgree = () => {
-    setShowTerms(false);
-    setShowNameInput(true);
-    setCurrentStep(2);
-    onStepChange(2);
-  };
+    setShowTerms(false)
+    setShowNameInput(true)
+    setCurrentStep(2)
+    onStepChange(2)
+  }
 
   const handleNext = () => {
-    // Handle next step
-    setCurrentStep(currentStep + 1);
-    onStepChange(currentStep + 1);
-  };
-
+    setCurrentStep(currentStep + 1)
+    onStepChange(currentStep + 1)
+  }
 
   return (
     <div className="form-content">
-      <h1>Commission <span style={{ color: "palevioletred" }}>Form</span></h1>
-      
+      <h1>
+        Commission <span style={{ color: "palevioletred" }}>Form</span>
+      </h1>
+
       {!showTerms && !showNameInput && (
         <div className="welcome-text">
           <p>You're interested to work with us? Let's go!</p>
@@ -50,9 +50,15 @@ const OrderForm: React.FC<OrderFormProps> = ({ onStepChange }) => {
 
       {showTerms && (
         <div className="terms-box">
-          <p>➙ By filling out this form you agree to our <span style={{ color: "palevioletred" }}>Terms of Service.</span></p>
+          <p>
+            ➙ By filling out this form you agree to our{" "}
+            <span style={{ color: "palevioletred" }}>Terms of Service.</span>
+          </p>
           <p>➙ Filling out this form does not guarantee a commission slot.</p>
-          <p>We will reach out to you within <span style={{ color: "palevioletred" }}>7 business days</span>.</p>
+          <p>
+            We will reach out to you within{" "}
+            <span style={{ color: "palevioletred" }}>7 business days</span>.
+          </p>
           <button onClick={handleAgree} className="agree-btn">
             I AGREE
           </button>
@@ -61,7 +67,10 @@ const OrderForm: React.FC<OrderFormProps> = ({ onStepChange }) => {
 
       {showNameInput && (
         <div className="input-box">
-          <h2 className="input-question"><span style={{ color: "palevioletred" }}>1. </span>What is the name you would like to be referred to?</h2>
+          <h2 className="input-question">
+            <span style={{ color: "palevioletred" }}>1. </span>What is the name
+            you would like to be referred to?
+          </h2>
           <input
             type="text"
             value={name}
@@ -69,13 +78,13 @@ const OrderForm: React.FC<OrderFormProps> = ({ onStepChange }) => {
             placeholder="TYPE YOUR ANSWER HERE..."
             className="form-input"
           />
-            <button onClick={handleNext} className="next-btn">
+          <button onClick={handleNext} className="next-btn">
             NEXT <ArrowRight className="ml-2" strokeWidth={3} />
-            </button>
+          </button>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default OrderForm;
+export default OrderForm
